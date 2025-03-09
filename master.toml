@@ -1,0 +1,9 @@
+# Local Git Repository Path (Change this to your actual repo location)
+REPO_PATH = "/path/to/repo"
+
+# Git User Details (Ensure this matches your commit author identity)
+GIT_USER_NAME = "RepoMan Historian"
+GIT_USER_EMAIL = "WHATEVERYOUWANT"
+
+# Ollama Model (You can change this to "codellama", "gemma", etc. if needed)
+OLLAMA_MODEL = "llama2"
