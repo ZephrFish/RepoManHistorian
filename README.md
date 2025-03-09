@@ -9,13 +9,13 @@ RepoManHistorian is a tool for modifying Git repository histories without alteri
 ### Rewrite Commit History
 Modify commit messages while preserving file integrity:
 ```bash
-python repomanhistorian.py
+python repohistorian.py
 ```
 
 ### Backdate Commits
 Adjust commit timestamps to simulate historical activity:
 ```bash
-python repomanhistorian.py --backdate
+python repohistorian.py --backdate
 ```
 
 ### Review Modified History
@@ -33,7 +33,7 @@ git push --force
 ## Help
 For available options and flags:
 ```bash
-python repomanhistorian.py --help
+python repohistorian.py --help
 ```
 
 
