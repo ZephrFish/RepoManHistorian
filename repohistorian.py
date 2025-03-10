@@ -31,7 +31,6 @@ def generate_commit_message(verbose=False):
     if verbose:
         print("🔹 Generating commit message using Ollama...")
 
-    # Change the system prompt to whatever you want the commit messages to be but leave on the "No explanations, no prefixes, just the commit message" at the end to remove the LLM input
     response = ollama.chat(model=OLLAMA_MODEL, messages=[
         {"role": "system", "content": "Generate a short, professional, programming-related commit message. No explanations, no prefixes, just the commit message."},
         {"role": "user", "content": "Generate a short commit message."}
@@ -99,6 +98,13 @@ def rewrite_commit_history(verbose=False):
         }, cwd=REPO_PATH)
 
     print("✅ Successfully rewrote commit history.")
+    reattach_head()
+
+# Function to reattach HEAD after commit rewriting
+def reattach_head():
+    print("🔄 Reattaching HEAD to the latest commit...")
+    subprocess.run(["git", "checkout", "master"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, cwd=REPO_PATH)
+    print("✅ HEAD successfully reattached to master branch.")
 
 # Run the commit modification process
 rewrite_commit_history(verbose=True)
