@@ -8,18 +8,16 @@ from datetime import datetime, timedelta
 # Load configuration from master.toml
 config = toml.load("master.toml")
 REPO_PATH = config["REPO_PATH"]  # Local Git repository path
-
-# Git User Details
 git_user_name = config["GIT_USER_NAME"]
 git_user_email = config["GIT_USER_EMAIL"]
 
 # Ollama Model
 OLLAMA_MODEL = config.get("OLLAMA_MODEL", "mistral")
 
-# Function to generate a random backdated timestamp
+# Modify the timestamps here to align your date ranges to something meaningful
 def random_date():
-    start_date = datetime(1970, 1, 1)
-    end_date = datetime(1990, 3, 1)
+    start_date = datetime(2024, 1, 1)
+    end_date = datetime(2025, 4, 1)
     random_days = (end_date - start_date).days
     random_time = timedelta(hours=random.randint(0, 23), minutes=random.randint(0, 59), seconds=random.randint(0, 59))
 
@@ -33,6 +31,7 @@ def generate_commit_message(verbose=False):
     if verbose:
         print("🔹 Generating commit message using Ollama...")
 
+    # Change the system prompt to whatever you want the commit messages to be but leave on the "No explanations, no prefixes, just the commit message" at the end to remove the LLM input
     response = ollama.chat(model=OLLAMA_MODEL, messages=[
         {"role": "system", "content": "Generate a short, professional, programming-related commit message. No explanations, no prefixes, just the commit message."},
         {"role": "user", "content": "Generate a short commit message."}
