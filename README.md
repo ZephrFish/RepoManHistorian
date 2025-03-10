@@ -2,7 +2,7 @@
 
 ## Overview
 
-RepoManHistorian is a tool for modifying Git repository histories without altering file contents. It allows users to rewrite commit messages, backdate commits, and simulate an organic repository timeline for research, security testing, and CTF challenges.
+RepoManHistorian is a tool for modifying Git repository histories without altering file contents. It builds on the logic already writen into [RepoMan](https://github.com/ZephrFish/RepoMan). It allows users to rewrite commit messages, backdate commits, and simulate an organic repository timeline for research, security testing, and CTF challenges.
 
 ## Usage
 
